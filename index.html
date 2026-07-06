@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADIGO - O'zbekiston bo'ylab shaharlararo ishonchli hamroh</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for nice look -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #0A1531;
+            --accent: #0D52E0;
+            --light-blue: #F0F4FF;
+            --white: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a4e 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--white);
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            box-shadow: 0 10px 30px rgba(10, 21, 49, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            font-size: 50px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtext {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* --- Download Button --- */
+        .btn-playstore {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 20px 40px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 20px 40px rgba(13, 82, 224, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+
+        .btn-playstore:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(13, 82, 224, 0.4);
+            background-color: #1565C0;
+        }
+
+        .btn-playstore i {
+            margin-right: 12px;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: -60px auto 0;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .icon-box {
+            background: var(--light-blue);
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* --- Mockup Area --- */
+        .mockup {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .mockup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #f1f3f7;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* --- Privacy Content --- */
+        #privacy-section {
+            display: none;
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            text-align: left;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .logo-area { font-size: 40px; }
+            h1 { font-size: 26px; }
+            .btn-playstore { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-area">ADIGO</div>
+            <h1>Yoningizda har doim hamroh topiladi</h1>
+            <p class="hero-subtext">
+                Shaharlararo sayohatlar uchun O'zbekistondagi eng zamonaviy platforma. 
+                Haydovchi bo'ling yoki yo'lovchi sifatida joy band qiling — hammasi oson va xavfsiz!
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi&pcampaignid=web_share" class="btn-playstore">
+                <i data-lucide="download"></i>
+                Google Play'dan yuklab olish
+            </a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="card">
+            <div class="icon-box"><i data-lucide="zap"></i></div>
+            <h3>Tezkorlik</h3>
+            <p>Bir necha soniyada yo'nalishingiz bo'yicha haydovchi yoki yo'lovchilarni toping.</p>
+        </div>
+        <div class="card">
+            <div class="icon-box"><i data-lucide="shield-check"></i></div>
+            <h3>Ishonchlilik</h3>
+            <p>Barcha foydalanuvchilar va avtomobillar admin paneli orqali tekshiruvdan o'tkaziladi.</p>
+        </div>
+        <div class="card">
+            <div class="icon-box"><i data-lucide="banknote"></i></div>
+            <h3>Hamyonbop</h3>
+            <p>O'zbekiston bo'ylab eng maqbul narxlarda sayohat qiling va ortiqcha xarajatdan qutuling.</p>
+        </div>
+    </section>
+
+    <div id="privacy-section">
+        <h2>Maxfiylik siyosati (Privacy Policy)</h2>
+        <hr><br>
+        <p>Oxirgi yangilanish: 2024-yil iyul</p><br>
+        <p>ADIGO ilovasi foydalanuvchilarning shaxsiy ma'lumotlarini himoya qilishni o'zining ustuvor vazifasi deb biladi. Ushbu siyosat qanday ma'lumotlar to'planishi va ulardan qanday foydalanishimizni tushuntiradi.</p><br>
+        <p><strong>1. Ma'lumotlarni to'plash:</strong> Biz foydalanuvchining ismi, telefon raqami va joylashuvini sayohatlarni tashkil qilish maqsadida to'playmiz.</p>
+        <p><strong>2. Uchinchi tomon xizmatlari:</strong> Ilovada reklama samaradorligini o'lchash uchun Meta (Facebook) SDK xizmatidan foydalaniladi.</p>
+        <p><strong>3. Ma'lumotlar xavfsizligi:</strong> Biz sizning ma'lumotlaringizni ruxsatsiz kirishdan himoya qilish uchun zamonaviy shifrlash usullaridan foydalanamiz.</p><br>
+        <p>Savollaringiz bo'lsa, adisoftuz@gmail.com manziliga murojaat qiling.</p>
+        <br>
+        <button onclick="document.getElementById('privacy-section').style.display='none'" style="padding: 10px 20px; border-radius: 10px; cursor: pointer;">Yopish</button>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi">Google Play</a>
+            <a href="javascript:void(0)" onclick="document.getElementById('privacy-section').style.display='block'">Privacy Policy</a>
+            <a href="tel:+998501995511">Yordam: +998 50 199 55 11</a>
+        </div>
+        <div class="copyright">
+            &copy; 2024 ADIGO Taxi. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
