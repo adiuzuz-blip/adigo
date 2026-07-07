@@ -3,266 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADIGO - O'zbekiston bo'ylab shaharlararo ishonchli hamroh</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons for nice look -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Adigo - Yo'lingiz bitta, manzilingiz yaqin!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0A1531;
-            --accent: #0D52E0;
-            --light-blue: #F0F4FF;
-            --white: #FFFFFF;
-            --text-main: #1A1A1A;
-            --text-muted: #666666;
+            --navy: #0A1531;
+            --gold: #FFD700;
+            --amber: #FFA500;
+            --white: #ffffff;
+            --bg: #F0F4FF;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--navy); overflow-x: hidden; }
 
-        body {
-            background-color: var(--light-blue);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
-
-        /* --- Header / Hero Section --- */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2a4e 100%);
-            padding: 80px 20px;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2a4e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
             text-align: center;
+            position: relative;
             color: var(--white);
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
-            box-shadow: 0 10px 30px rgba(10, 21, 49, 0.2);
+            overflow: hidden;
         }
 
-        .container {
+        .hero::before {
+            content: ''; position: absolute; width: 300px; height: 300px;
+            background: var(--gold); filter: blur(150px); opacity: 0.1; top: -100px; right: -100px;
+        }
+
+        .logo-text {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Phone Mockup */
+        .mockup {
+            width: 260px;
+            height: 520px;
+            background: #000;
+            border: 12px solid #333;
+            border-radius: 45px;
+            position: relative;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.6);
+            margin-bottom: 50px;
+            overflow: hidden;
+            animation: float 5s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mockup-content {
+            color: var(--gold);
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        /* Pulsing Download Button */
+        .cta-btn {
+            background: linear-gradient(90deg, var(--gold), var(--amber));
+            color: var(--navy);
+            padding: 22px 50px;
+            border-radius: 100px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 15px 40px rgba(255, 165, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-btn:hover { transform: scale(1.08); box-shadow: 0 20px 50px rgba(255, 165, 0, 0.7); }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 80px 20px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            min-width: 220px;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .stat-card h3 { font-size: 32px; font-weight: 800; color: var(--navy); margin-bottom: 5px; }
+        .stat-card p { font-size: 14px; color: #777; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Features */
+        .features { padding: 100px 20px; text-align: center; background: var(--white); }
+        .section-title { font-size: 36px; font-weight: 800; margin-bottom: 60px; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .logo-area {
-            font-size: 50px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtext {
-            font-size: 18px;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        /* --- Download Button --- */
-        .btn-playstore {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 20px 40px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 20px 40px rgba(13, 82, 224, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid transparent;
-        }
-
-        .btn-playstore:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(13, 82, 224, 0.4);
-            background-color: #1565C0;
-        }
-
-        .btn-playstore i {
-            margin-right: 12px;
-        }
-
-        /* --- Features Section --- */
-        .features {
-            padding: 100px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: -60px auto 0;
-        }
-
-        .card {
-            background: var(--white);
+        .feature-item {
             padding: 40px;
             border-radius: 35px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            transition: 0.3s;
+            background: var(--bg);
+            transition: 0.4s;
+            border: 1px solid transparent;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        .feature-item:hover { transform: translateY(-10px); border-color: var(--gold); background: var(--white); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+
+        .feature-icon { font-size: 50px; margin-bottom: 20px; display: block; }
+        .feature-item h3 { margin-bottom: 15px; font-weight: 700; }
+        .feature-item p { color: #666; line-height: 1.6; }
+
+        /* Privacy Section */
+        .privacy { padding: 80px 20px; max-width: 900px; margin: 0 auto; line-height: 1.8; color: #444; }
+        .privacy h2 { color: var(--navy); margin-bottom: 30px; font-weight: 800; }
+        .privacy h3 { margin: 25px 0 10px; color: var(--navy); font-weight: 700; }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
         }
 
-        .icon-box {
-            background: var(--light-blue);
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--accent);
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(255, 165, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
         }
 
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-            color: var(--primary);
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .card p {
-            color: var(--text-muted);
-            line-height: 1.5;
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 30px; }
+            .stats { flex-direction: column; align-items: center; }
+            .stat-card { width: 100%; }
         }
 
-        /* --- Mockup Area --- */
-        .mockup {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .mockup img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* --- Footer --- */
         footer {
-            background: #f1f3f7;
             padding: 60px 20px;
             text-align: center;
-            margin-top: 50px;
+            background: var(--navy);
+            color: var(--white);
         }
 
-        .footer-links {
-            margin-bottom: 20px;
-        }
+        .footer-links { margin-top: 20px; }
+        .footer-links a { color: var(--gold); text-decoration: none; margin: 0 15px; font-size: 14px; opacity: 0.8; cursor: pointer; }
+        .footer-links a:hover { opacity: 1; text-decoration: underline; }
 
-        .footer-links a {
-            color: var(--accent);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .copyright {
-            font-size: 13px;
-            color: #888;
-        }
-
-        /* --- Privacy Content --- */
-        #privacy-section {
-            display: none;
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            text-align: left;
-            line-height: 1.8;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        @media (max-width: 768px) {
-            .logo-area { font-size: 40px; }
-            h1 { font-size: 26px; }
-            .btn-playstore { width: 100%; justify-content: center; }
-        }
+        .play-icon { width: 28px; height: 28px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo-area">ADIGO</div>
-            <h1>Yoningizda har doim hamroh topiladi</h1>
-            <p class="hero-subtext">
-                Shaharlararo sayohatlar uchun O'zbekistondagi eng zamonaviy platforma. 
-                Haydovchi bo'ling yoki yo'lovchi sifatida joy band qiling — hammasi oson va xavfsiz!
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi&pcampaignid=web_share" class="btn-playstore">
-                <i data-lucide="download"></i>
-                Google Play'dan yuklab olish
-            </a>
+    <section class="hero">
+        <div class="logo-text">ADIGO</div>
+        <h1>Yo'lingiz bitta, manzilingiz yaqin!</h1>
+        <p>O'zbekistondagi eng zamonaviy va xavfsiz hamroh platformasi. Haydovchilar va yo'lovchilar uchun yagona va qulay yechim.</p>
+        
+        <div class="mockup">
+            <div class="mockup-content">ADIGO</div>
         </div>
-    </header>
+
+        <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi" class="cta-btn">
+            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L18.66,14.05C21.44,12.45 21.44,11.55 18.66,9.95L16.81,8.88L14.89,12L16.81,15.12M4.69,1.11L14.4,10.82L17.11,8.21C17.75,7.57 17.75,6.54 17.11,5.9L10.33,2C9,1.24 7.6,1.28 6.44,1.88L4.69,1.11M14.4,13.18L4.69,22.89L6.44,22.12C7.6,22.72 9,22.76 10.33,22L17.11,18.1C17.75,17.46 17.75,16.43 17.11,15.79L14.4,13.18Z"/>
+            </svg>
+            BEPUL YUKLAB OLISH
+        </a>
+    </section>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3>5,000+</h3>
+            <p>Foydalanuvchilar</p>
+        </div>
+        <div class="stat-card">
+            <h3>15,000+</h3>
+            <p>Muvaffaqiyatli safarlar</p>
+        </div>
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Ishonchli xizmat</p>
+        </div>
+    </div>
 
     <section class="features">
-        <div class="card">
-            <div class="icon-box"><i data-lucide="zap"></i></div>
-            <h3>Tezkorlik</h3>
-            <p>Bir necha soniyada yo'nalishingiz bo'yicha haydovchi yoki yo'lovchilarni toping.</p>
-        </div>
-        <div class="card">
-            <div class="icon-box"><i data-lucide="shield-check"></i></div>
-            <h3>Ishonchlilik</h3>
-            <p>Barcha foydalanuvchilar va avtomobillar admin paneli orqali tekshiruvdan o'tkaziladi.</p>
-        </div>
-        <div class="card">
-            <div class="icon-box"><i data-lucide="banknote"></i></div>
-            <h3>Hamyonbop</h3>
-            <p>O'zbekiston bo'ylab eng maqbul narxlarda sayohat qiling va ortiqcha xarajatdan qutuling.</p>
+        <h2 class="section-title">Nima uchun minglab odamlar Adigoni tanlamoqda?</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🚕</span>
+                <h3>Arzon va Qulay</h3>
+                <p>Bozordagi eng hamyonbop narxlar va tushunarli interfeys orqali safaringizni bir zumda rejalashtiring.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🛡️</span>
+                <h3>Maksimal Xavfsizlik</h3>
+                <p>Barcha haydovchilarimiz qat'iy tekshiruvdan o'tgan. Safaringiz har doim nazoratimizda.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📦</span>
+                <h3>Tezkor Pochta</h3>
+                <p>Narsalaringizni ishonchli hamrohlar orqali manzilingizga eng qisqa vaqtda yetkazib bering.</p>
+            </div>
         </div>
     </section>
 
-    <div id="privacy-section">
+    <section class="privacy" id="privacy">
         <h2>Maxfiylik siyosati (Privacy Policy)</h2>
-        <hr><br>
-        <p>Oxirgi yangilanish: 2024-yil iyul</p><br>
-        <p>ADIGO ilovasi foydalanuvchilarning shaxsiy ma'lumotlarini himoya qilishni o'zining ustuvor vazifasi deb biladi. Ushbu siyosat qanday ma'lumotlar to'planishi va ulardan qanday foydalanishimizni tushuntiradi.</p><br>
-        <p><strong>1. Ma'lumotlarni to'plash:</strong> Biz foydalanuvchining ismi, telefon raqami va joylashuvini sayohatlarni tashkil qilish maqsadida to'playmiz.</p>
-        <p><strong>2. Uchinchi tomon xizmatlari:</strong> Ilovada reklama samaradorligini o'lchash uchun Meta (Facebook) SDK xizmatidan foydalaniladi.</p>
-        <p><strong>3. Ma'lumotlar xavfsizligi:</strong> Biz sizning ma'lumotlaringizni ruxsatsiz kirishdan himoya qilish uchun zamonaviy shifrlash usullaridan foydalanamiz.</p><br>
-        <p>Savollaringiz bo'lsa, adisoftuz@gmail.com manziliga murojaat qiling.</p>
-        <br>
-        <button onclick="document.getElementById('privacy-section').style.display='none'" style="padding: 10px 20px; border-radius: 10px; cursor: pointer;">Yopish</button>
-    </div>
+        <p>Oxirgi yangilanish: 2024-yil iyun</p>
+        
+        <h3>1. Umumiy ma'lumotlar</h3>
+        <p>Adigo ilovasi foydalanuvchilarning maxfiyligini qadrlaydi va himoya qiladi. Ushbu siyosat ilovani ishlatish jarayonida qanday ma'lumotlar yig'ilishi va ular qanday ishlatilishini tushuntiradi.</p>
+
+        <h3>2. Ma'lumotlarni yig'ish</h3>
+        <p>Biz quyidagi ma'lumotlarni yig'ishimiz mumkin:</p>
+        <ul>
+            <li>Shaxsiy ma'lumotlar (ism, telefon raqami).</li>
+            <li>Geolokatsiya (haydovchi va yo'lovchi o'rtasidagi masofani hisoblash uchun).</li>
+            <li>Qurilma haqidagi ma'lumotlar (reklama identifikatorlari va diagnostika).</li>
+        </ul>
+
+        <h3>3. Ma'lumotlardan foydalanish</h3>
+        <p>Yig'ilgan ma'lumotlar faqatgina xizmat sifatini oshirish, xavfsizlikni ta'minlash va foydalanuvchilarga qulaylik yaratish maqsadida ishlatiladi. Shaxsiy ma'lumotlar uchinchi shaxslarga sotilmaydi.</p>
+
+        <h3>4. Aloqa</h3>
+        <p>Savollaringiz bo'lsa, ilova ichidagi "Yordam" bo'limi orqali admin bilan bog'lanishingiz mumkin.</p>
+    </section>
 
     <footer>
+        <p>&copy; 2024 Adigo. Barcha huquqlar himoyalangan.</p>
         <div class="footer-links">
-            <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi">Google Play</a>
-            <a href="javascript:void(0)" onclick="document.getElementById('privacy-section').style.display='block'">Privacy Policy</a>
-            <a href="tel:+998501995511">Yordam: +998 50 199 55 11</a>
-        </div>
-        <div class="copyright">
-            &copy; 2024 ADIGO Taxi. Barcha huquqlar himoyalangan.
+            <a href="#privacy">Maxfiylik siyosati</a>
+            <a href="#">Foydalanish shartlari</a>
+            <a href="#">Biz bilan bog'lanish</a>
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-    </script>
 </body>
 </html>
-
-
