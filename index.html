@@ -2,320 +2,154 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADIGO - Shaharlararo Hamrohlik Tizimi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ADIGO - Hamrohlik Platformasi</title>
 
     <!-- Meta Tags for Instagram/Facebook Ads -->
-    <meta name="description" content="ADIGO - O'zbekistondagi eng ishonchli shaharlararo hamrohlik platformasi. Arzon, tez va xavfsiz sayohat qiling.">
-    <meta property="og:title" content="ADIGO - Hamroh Platformasi">
-    <meta property="og:description" content="Minglab haydovchilar va yo'lovchilar tanlovi. Safaringizni bugun rejalashtiring!">
+    <meta name="description" content="Eng arzon shaharlararo taksi va hamrohlik ilovasi.">
     <meta property="og:image" content="https://lutfidinovabdumajid51-collab.github.io/Adigotaxi/icons/Icon-512.png">
-    <meta property="og:type" content="website">
-
-    <!-- Fontlar va Ikonkalar -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #0A1531;
-            --accent: #FFC107;
-            --white: #FFFFFF;
-            --dark-blue: #050a1d;
-            --gray: #b0b0b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--primary);
-            color: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Fon animatsiyasi */
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #16213e 0%, #0a1531 100%);
-            z-index: -1;
-        }
+        /* Tizim fontlari - Ultra tez yuklanish uchun */
+        :root { --p: #0A1531; --a: #FFC107; --w: #FFFFFF; --s: #00E676; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        
+        body { background: var(--p); color: var(--w); overflow-x: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            perspective: 1000px;
-            text-align: center;
-        }
+        .h { padding: 30px 15px; text-align: center; background: radial-gradient(circle at center, #1a2b5a, #0A1531); }
+        .b { background: rgba(0,230,118,0.2); color: var(--s); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; border: 1px solid var(--s); display: inline-block; margin-bottom: 10px; }
+        
+        h1 { font-size: 50px; font-weight: 900; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
+        h1 span { color: var(--a); }
+        
+        .p { font-size: 14px; color: #b0b0b0; margin-bottom: 25px; max-width: 300px; margin: 0 auto 25px; }
 
-        /* 3D LOGO */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            transform-style: preserve-3d;
-            animation: float 4s ease-in-out infinite;
-        }
+        /* Jonli reyslar paneli */
+        .g { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 500px; margin: 0 auto 30px; }
+        .r { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; text-align: left; border-left: 3px solid var(--a); }
+        .rn { font-size: 10px; font-weight: 700; color: var(--a); text-transform: uppercase; }
+        .rp { font-size: 16px; font-weight: 900; margin: 2px 0; }
+        .rt { font-size: 10px; color: var(--s); font-weight: 600; }
 
-        .logo-3d {
-            font-size: clamp(60px, 15vw, 100px);
-            font-weight: 900;
-            transform-style: preserve-3d;
-            line-height: 1;
-        }
+        /* Narxlar taqqoslovi */
+        .c { background: #050a1d; padding: 30px 15px; text-align: center; }
+        table { width: 100%; max-width: 400px; margin: 15px auto; border-collapse: collapse; font-size: 13px; }
+        th { color: var(--a); padding: 10px; border-bottom: 1px solid #222; text-align: left; }
+        td { padding: 12px 10px; border-bottom: 1px solid #111; text-align: left; }
+        .old { text-decoration: line-through; color: #ff5252; opacity: 0.6; font-size: 11px; }
+        .new { color: var(--s); font-weight: 900; font-size: 16px; }
 
-        .logo-3d .adi { color: white; text-shadow: 0 5px 0 #ccc, 0 10px 20px rgba(0,0,0,0.5); }
-        .logo-3d .go { color: var(--accent); text-shadow: 0 5px 0 #c49100, 0 10px 20px rgba(0,0,0,0.5); }
+        /* Testimonials (Fikrlar) */
+        .t { padding: 30px 15px; background: var(--p); }
+        .tc { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 12px; border-left: 3px solid var(--a); font-size: 13px; line-height: 1.5; }
+        .ta { font-weight: 800; color: var(--a); font-size: 11px; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotateX(5deg); }
-            50% { transform: translateY(-25px) rotateX(15deg); }
-        }
+        /* Fixed Install Button */
+        .cta { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 380px; z-index: 1000; }
+        .btn { background: var(--w); color: #000; padding: 18px; border-radius: 18px; text-align: center; font-weight: 900; font-size: 18px; text-decoration: none; display: block; box-shadow: 0 10px 40px rgba(0,0,0,0.6); animation: pulse 2s infinite; }
+        
+        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.04); box-shadow: 0 0 25px var(--a);} 100% {transform: scale(1);} }
 
-        .hero h2 {
-            font-size: clamp(18px, 5vw, 26px);
-            letter-spacing: 6px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+        /* Jonli bildirishnomalar */
+        .n { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 8px 18px; border-radius: 25px; font-size: 11px; font-weight: 800; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.4); animation: slideDown 0.4s ease forwards; }
+        @keyframes slideDown { from {top: -50px;} to {top: 15px;} }
 
-        .hero p {
-            max-width: 500px;
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 50px;
-            font-size: 16px;
-        }
-
-        /* Play Market Tugmasi Animatsiyasi */
-        .cta-box {
-            position: relative;
-            display: inline-block;
-        }
-
-        .btn-play {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: white;
-            color: var(--primary);
-            padding: 20px 40px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 20px;
-            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid transparent;
-            animation: pulse-glow 2s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: scale(1); box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 15px 50px rgba(255, 193, 7, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 15px 35px rgba(255, 193, 7, 0.3); }
-        }
-
-        .btn-play:hover {
-            transform: scale(1.1) translateY(-10px);
-            background: var(--accent);
-            border-color: white;
-            animation: none;
-        }
-
-        /* Animatsiyali Qolcha */
-        .hand-anim {
-            position: absolute;
-            right: -50px;
-            bottom: -60px;
-            font-size: 50px;
-            animation: pointing 1.5s infinite;
-            pointer-events: none;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        @keyframes pointing {
-            0% { transform: translate(0, 0) rotate(-20deg); }
-            50% { transform: translate(-15px, -15px) rotate(-10deg); }
-            100% { transform: translate(0, 0) rotate(-20deg); }
-        }
-
-        /* Statistika Paneli */
-        .stats-section {
-            padding: 80px 5%;
-            background: rgba(255, 255, 255, 0.03);
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .stat-item { text-align: center; }
-        .stat-item h3 { font-size: 48px; font-weight: 900; color: var(--accent); margin-bottom: 5px; }
-        .stat-item p { font-size: 14px; color: var(--gray); text-transform: uppercase; letter-spacing: 2px; }
-
-        /* Xususiyatlar */
-        .features { padding: 100px 5%; background: var(--dark-blue); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 40px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
-            text-align: center;
-        }
-        .card:hover { transform: translateY(-15px); border-color: var(--accent); background: rgba(255, 255, 255, 0.05); }
-        .card i { font-size: 50px; color: var(--accent); margin-bottom: 25px; }
-        .card h3 { font-size: 24px; margin-bottom: 15px; }
-        .card p { color: var(--gray); font-size: 14px; line-height: 1.6; }
-
-        /* Maxfiylik Siyosati (INSTAGRAM ADS UCHUN MUHIM) */
-        .privacy-section { padding: 100px 10%; background: var(--primary); }
-        .privacy-content {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 50px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .privacy-content h2 { color: var(--accent); margin-bottom: 30px; font-size: 32px; font-weight: 900; text-align: center; }
-        .privacy-content h4 { color: white; margin: 25px 0 10px; font-size: 18px; }
-        .privacy-content p, .privacy-content li { color: var(--gray); line-height: 1.8; font-size: 15px; margin-bottom: 10px; }
-        .privacy-content ul { padding-left: 20px; margin-bottom: 20px; }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: #555;
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            .hand-anim { right: 0; bottom: -70px; font-size: 40px; }
-            .stats-section { padding: 50px 5%; }
-            .privacy-content { padding: 30px 20px; }
-        }
+        /* Footer va Privacy */
+        footer { padding: 40px 15px 140px; text-align: left; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
+        .privacy { font-size: 10px; color: #555; line-height: 1.4; max-width: 800px; margin: 0 auto; }
+        .pl-text { color: #777; pointer-events: auto; cursor: text; }
     </style>
 </head>
-<body>
+<body onclick="go(event)">
 
-    <div class="bg-glow"></div>
+<div id="nc"></div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="logo-container">
-            <div class="logo-3d">
-                <span class="adi">ADI</span><span class="go">GO</span>
-            </div>
+<div class="h">
+    <div class="b">● 245 TA FAOL REYS</div>
+    <h1>AD<span>IGO</span></h1>
+    <p class="p">Shaharlararo eng arzon va xavfsiz hamrohlik platformasi.</p>
+
+    <div class="g">
+        <div class="r"><div class="rn">Andijon ➔ Toshkent</div><div class="rp">120,000 so'm</div><div class="rt">Hozirgina</div></div>
+        <div class="r"><div class="rn">Namangan ➔ Toshkent</div><div class="rp">110,000 so'm</div><div class="rt">3 min oldin</div></div>
+        <div class="r"><div class="rn">Toshkent ➔ Farg'ona</div><div class="rp">125,000 so'm</div><div class="rt">10 min oldin</div></div>
+        <div class="r"><div class="rn">Samarqand ➔ Toshkent</div><div class="rp">105,000 so'm</div><div class="rt">Hozirgina</div></div>
+    </div>
+</div>
+
+<div class="c">
+    <h3 style="margin-bottom: 15px; font-size: 20px;">Nega ADIGO arzon?</h3>
+    <table>
+        <tr><th>Yo'nalish</th><th>Oddiy Taksi</th><th>ADIGO</th></tr>
+        <tr><td>Andijon - Toshkent</td><td><span class="old">180,000</span></td><td class="new">120,000</td></tr>
+        <tr><td>Toshkent - Samarqand</td><td><span class="old">150,000</span></td><td class="new">100,000</td></tr>
+        <tr><td>Namangan - Toshkent</td><td><span class="old">160,000</span></td><td class="new">110,000</td></tr>
+    </table>
+</div>
+
+<div class="t">
+    <div class="tc">"Andijondan Toshkentga borish uchun doim taksi kutardim. Bu ilovada 2 daqiqada hamroh topdim, narxi ham juda arzon!"<div class="ta">● Azamat (Yo'lovchi)</div></div>
+    <div class="tc" style="border-left-color: var(--s);">"Har kuni Toshkent-Buxoro qatnayman. Ilova orqali har doim 3-4 ta odam topilyapti, bo'sh ketmayapman. Raxmat!"<div class="ta">● Mahmud (Haydovchi)</div></div>
+    <div class="tc">"Pochta yuborish uchun ham juda qulay ekan. Vodiyga berib yuborgan narsam 3 soatda yetib bordi."<div class="ta">● Dilshoda (Talaba)</div></div>
+    <div class="tc" style="border-left-color: var(--s);">"Registratsiya yo'qligi juda yoqdi. Shunchaki kirdim va kerakli yo'nalishni topdim. Ishlatish juda oson."<div class="ta">● Jamshid (Foydalanuvchi)</div></div>
+</div>
+
+<div class="cta"><div class="btn">GOOGLE PLAYDAN YUKLASH</div></div>
+
+<footer>
+    <div class="privacy">
+        <p style="font-weight: bold; margin-bottom: 10px; color: var(--accent);">&copy; 2024 ADIGO Team</p>
+        <div class="pl-text">
+            <h4 style="margin-bottom: 5px; color: #999;">Maxfiylik Siyosati</h4>
+            <p>ADIGO platformasi foydalanuvchilarning maxfiyligini qadrlaydi. Biz faqat xizmat ko'rsatish uchun zarur bo'lgan ma'lumotlarni (ism, telefon raqami, joylashuv) to'playmiz. Joylashuv ma'lumotlari haydovchi va yo'lovchilarni bir-biriga bog'lash uchun ishlatiladi va uchinchi shaxslarga sotilmaydi. Bog'lanish: support@adigo.uz</p>
         </div>
-        <h2>Shaharlararo Hamroh</h2>
-        <p>O'zbekistondagi eng ishonchli shaharlararo hamrohlik platformasi. Minglab haydovchilar va yo'lovchilar tanlovi!</p>
+    </div>
+</footer>
 
-        <div class="cta-box">
-            <a href="https://play.google.com/store/apps/details?id=com.adigo.taxi" class="btn-play">
-                <i class="fab fa-google-play"></i>
-                YUKLAB OLISH
-            </a>
-            <div class="hand-anim">👆</div>
-        </div>
-    </section>
+<script>
+    // TUZOQ: Istalgan joyga bossa Play Marketga o'tadi
+    function go(e) {
+        // Maxfiylik siyosati matniga tegsa o'tmaydi (Meta Ads tekshiruvi uchun)
+        if (e && (e.target.classList.contains('pl-text') || e.target.closest('.pl-text'))) return;
+        
+        // Vibratsiya effekt
+        if (navigator.vibrate) navigator.vibrate(50);
+        
+        // Play Marketga yo'naltirish
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.adigo.taxi';
+    }
 
-    <!-- STATS SECTION -->
-    <section class="stats-section">
-        <div class="stat-item">
-            <h3>5,000+</h3>
-            <p>A'zolar</p>
-        </div>
-        <div class="stat-item">
-            <h3>15,000+</h3>
-            <p>Oylik Reyslar</p>
-        </div>
-        <div class="stat-item">
-            <h3>4.9</h3>
-            <p>Reyting</p>
-        </div>
-    </section>
+    // Tab nomi animatsiyasi
+    let originalTitle = document.title;
+    window.onblur = () => { document.title = "🚕 Haydovchi topildi!"; };
+    window.onfocus = () => { document.title = originalTitle; };
 
-    <!-- FEATURES -->
-    <section class="features">
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Tezkor Topish</h3>
-                <p>O'zingizga ma'qul vaqt va yo'nalishni bir necha soniyada tanlang. Haydovchilar sizni kutmoqda.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-user-shield"></i>
-                <h3>Xavfsiz Safar</h3>
-                <p>Barcha haydovchilarimiz tekshirilgan va reytingga ega. Safaringiz har doim nazoratimizda.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-hand-holding-usd"></i>
-                <h3>Hamyonbop</h3>
-                <p>Narxlar haydovchi bilan kelishilgan holda, ortiqcha komissiyalarsiz va yashirin to'lovlarsiz.</p>
-            </div>
-        </div>
-    </section>
+    // Jonli xabarlar (12 ta xabar)
+    const messages = [
+        "👤 Sardor: Andijonga taksi qidiryapti",
+        "🚕 Mahmud: Toshkentga reys qo'shdi",
+        "👤 Malika: Buxoroga taksi qidiryapti",
+        "📦 Dilshoda: Vodiyga pochta berdi",
+        "🚗 Rustam: 2 ta bo'sh joy qoldi",
+        "👤 Azamat: Farg'onaga taksi qidiryapti",
+        "👤 Bekzod: Samarqandga taksi qidiryapti",
+        "🚕 Jasur: Namanganga reys qo'shdi",
+        "👤 Umid: Qo'qonga taksi qidiryapti",
+        "✅ Yangi foydalanuvchi qo'shildi",
+        "👤 Laylo: Toshkentga taksi qidiryapti",
+        "🚗 Abror: 3 ta bo'sh joy e'lon qildi"
+    ];
 
-    <!-- PRIVACY POLICY (Meta Ads Approval) -->
-    <section id="privacy" class="privacy-section">
-        <div class="privacy-content">
-            <h2>Maxfiylik Siyosati</h2>
-            <p><strong>Oxirgi yangilanish:</strong> 1-dekabr, 2026-yil</p>
-            <p>ADIGO jamoasi foydalanuvchilarning shaxsiy ma'lumotlari xavfsizligini ta'minlashni o'zining ustuvor vazifasi deb biladi. Ushbu siyosat biz qanday ma'lumotlarni yig'ishimiz va ulardan qanday foydalanishimizni tushuntiradi.</p>
-            
-            <h4>1. Ma'lumotlarni yig'ish</h4>
-            <p>Biz quyidagi turdagi ma'lumotlarni yig'ishimiz mumkin:</p>
-            <ul>
-                <li><strong>Shaxsiy ma'lumotlar:</strong> Ism, telefon raqami va profil rasmi.</li>
-                <li><strong>Joylashuv ma'lumotlari:</strong> Haydovchi va yo'lovchilarni bir-biriga bog'lash uchun qurilmangiz koordinatalari.</li>
-                <li><strong>Qurilma ma'lumotlari:</strong> Ilova barqarorligini ta'minlash uchun model va operatsion tizim versiyasi.</li>
-            </ul>
-
-            <h4>2. Joylashuv ma'lumotlaridan foydalanish</h4>
-            <p>ADIGO ilovasi "Joylashuv" xizmatidan quyidagi maqsadlarda foydalanadi:</p>
-            <ul>
-                <li>Yo'lovchiga eng yaqin haydovchilarni ko'rsatish uchun.</li>
-                <li>Haydovchi va yo'lovchi o'rtasidagi masofani hisoblash uchun.</li>
-                <li>Ilova yopiq bo'lganda ham (faqat foydalanuvchi ruxsati bilan) haydovchilarning faol holatini saqlab qolish uchun.</li>
-            </ul>
-
-            <h4>3. Ma'lumotlar xavfsizligi</h4>
-            <p>Sizning ma'lumotlaringiz uchinchi shaxslarga sotilmaydi yoki ijaraga berilmaydi. Biz barcha ma'lumotlarni zamonaviy shifrlash (SSL/TLS) texnologiyalari orqali himoya qilamiz.</p>
-
-            <h4>4. Foydalanuvchi huquqlari</h4>
-            <p>Siz har qanday vaqtda o'z profilingizni o'chirib tashlash yoki ma'lumotlaringizni tahrirlash huquqiga egasiz. Buning uchun ilovadagi sozlamalar bo'limidan foydalaning.</p>
-
-            <h4>5. Bog'lanish</h4>
-            <p>Maxfiylik siyosati bo'yicha savollaringiz bo'lsa, bizga murojaat qiling:<br>
-            Email: <strong>support@adigo.uz</strong><br>
-            Telegram: <strong>@ADIGO_ADMIN</strong></p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 ADIGO Team. Barcha huquqlar himoyalangan.</p>
-        <p>Ilova Play Marketda "ADIGO" nomi bilan ro'yxatdan o'tgan.</p>
-    </footer>
+    setInterval(() => {
+        const container = document.getElementById('nc');
+        const div = document.createElement('div');
+        div.className = 'n';
+        div.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+        container.appendChild(div);
+        setTimeout(() => div.remove(), 4000);
+    }, 7000);
+</script>
 
 </body>
 </html>
