@@ -2,154 +2,62 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ADIGO - Hamrohlik Platformasi</title>
-
-    <!-- Meta Tags for Instagram/Facebook Ads -->
-    <meta name="description" content="Eng arzon shaharlararo taksi va hamrohlik ilovasi.">
-    <meta property="og:image" content="https://lutfidinovabdumajid51-collab.github.io/Adigotaxi/icons/Icon-512.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADIGO - Yo'naltirilmoqda...</title>
     <style>
-        /* Tizim fontlari - Ultra tez yuklanish uchun */
-        :root { --p: #0A1531; --a: #FFC107; --w: #FFFFFF; --s: #00E676; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        
-        body { background: var(--p); color: var(--w); overflow-x: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-
-        /* Hero Section */
-        .h { padding: 30px 15px; text-align: center; background: radial-gradient(circle at center, #1a2b5a, #0A1531); }
-        .b { background: rgba(0,230,118,0.2); color: var(--s); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; border: 1px solid var(--s); display: inline-block; margin-bottom: 10px; }
-        
-        h1 { font-size: 50px; font-weight: 900; letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
-        h1 span { color: var(--a); }
-        
-        .p { font-size: 14px; color: #b0b0b0; margin-bottom: 25px; max-width: 300px; margin: 0 auto 25px; }
-
-        /* Jonli reyslar paneli */
-        .g { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 500px; margin: 0 auto 30px; }
-        .r { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; text-align: left; border-left: 3px solid var(--a); }
-        .rn { font-size: 10px; font-weight: 700; color: var(--a); text-transform: uppercase; }
-        .rp { font-size: 16px; font-weight: 900; margin: 2px 0; }
-        .rt { font-size: 10px; color: var(--s); font-weight: 600; }
-
-        /* Narxlar taqqoslovi */
-        .c { background: #050a1d; padding: 30px 15px; text-align: center; }
-        table { width: 100%; max-width: 400px; margin: 15px auto; border-collapse: collapse; font-size: 13px; }
-        th { color: var(--a); padding: 10px; border-bottom: 1px solid #222; text-align: left; }
-        td { padding: 12px 10px; border-bottom: 1px solid #111; text-align: left; }
-        .old { text-decoration: line-through; color: #ff5252; opacity: 0.6; font-size: 11px; }
-        .new { color: var(--s); font-weight: 900; font-size: 16px; }
-
-        /* Testimonials (Fikrlar) */
-        .t { padding: 30px 15px; background: var(--p); }
-        .tc { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 12px; border-left: 3px solid var(--a); font-size: 13px; line-height: 1.5; }
-        .ta { font-weight: 800; color: var(--a); font-size: 11px; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
-
-        /* Fixed Install Button */
-        .cta { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 380px; z-index: 1000; }
-        .btn { background: var(--w); color: #000; padding: 18px; border-radius: 18px; text-align: center; font-weight: 900; font-size: 18px; text-decoration: none; display: block; box-shadow: 0 10px 40px rgba(0,0,0,0.6); animation: pulse 2s infinite; }
-        
-        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.04); box-shadow: 0 0 25px var(--a);} 100% {transform: scale(1);} }
-
-        /* Jonli bildirishnomalar */
-        .n { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 8px 18px; border-radius: 25px; font-size: 11px; font-weight: 800; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.4); animation: slideDown 0.4s ease forwards; }
-        @keyframes slideDown { from {top: -50px;} to {top: 15px;} }
-
-        /* Footer va Privacy */
-        footer { padding: 40px 15px 140px; text-align: left; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
-        .privacy { font-size: 10px; color: #555; line-height: 1.4; max-width: 800px; margin: 0 auto; }
-        .pl-text { color: #777; pointer-events: auto; cursor: text; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #0A1531;
+        }
+        .container {
+            text-align: center;
+        }
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0A1531;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
     </style>
+    <script>
+        function redirect() {
+            var playStoreUrl = "https://play.google.com/store/apps/details?id=com.adigo.taxi";
+
+            // Avtomatik yo'naltirish
+            window.location.href = playStoreUrl;
+
+            // Agar brauzer avtomatik o'tmasa (masalan ba'zi in-app brauzerlarda),
+            // 2 soniyadan keyin yana urinib ko'radi
+            setTimeout(function() {
+                window.location.href = playStoreUrl;
+            }, 2000);
+        }
+
+        window.onload = redirect;
+    </script>
 </head>
-<body onclick="go(event)">
-
-<div id="nc"></div>
-
-<div class="h">
-    <div class="b">● 245 TA FAOL REYS</div>
-    <h1>AD<span>IGO</span></h1>
-    <p class="p">Shaharlararo eng arzon va xavfsiz hamrohlik platformasi.</p>
-
-    <div class="g">
-        <div class="r"><div class="rn">Andijon ➔ Toshkent</div><div class="rp">120,000 so'm</div><div class="rt">Hozirgina</div></div>
-        <div class="r"><div class="rn">Namangan ➔ Toshkent</div><div class="rp">110,000 so'm</div><div class="rt">3 min oldin</div></div>
-        <div class="r"><div class="rn">Toshkent ➔ Farg'ona</div><div class="rp">125,000 so'm</div><div class="rt">10 min oldin</div></div>
-        <div class="r"><div class="rn">Samarqand ➔ Toshkent</div><div class="rp">105,000 so'm</div><div class="rt">Hozirgina</div></div>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <p>Yo'naltirilmoqda...</p>
     </div>
-</div>
-
-<div class="c">
-    <h3 style="margin-bottom: 15px; font-size: 20px;">Nega ADIGO arzon?</h3>
-    <table>
-        <tr><th>Yo'nalish</th><th>Oddiy Taksi</th><th>ADIGO</th></tr>
-        <tr><td>Andijon - Toshkent</td><td><span class="old">180,000</span></td><td class="new">120,000</td></tr>
-        <tr><td>Toshkent - Samarqand</td><td><span class="old">150,000</span></td><td class="new">100,000</td></tr>
-        <tr><td>Namangan - Toshkent</td><td><span class="old">160,000</span></td><td class="new">110,000</td></tr>
-    </table>
-</div>
-
-<div class="t">
-    <div class="tc">"Andijondan Toshkentga borish uchun doim taksi kutardim. Bu ilovada 2 daqiqada hamroh topdim, narxi ham juda arzon!"<div class="ta">● Azamat (Yo'lovchi)</div></div>
-    <div class="tc" style="border-left-color: var(--s);">"Har kuni Toshkent-Buxoro qatnayman. Ilova orqali har doim 3-4 ta odam topilyapti, bo'sh ketmayapman. Raxmat!"<div class="ta">● Mahmud (Haydovchi)</div></div>
-    <div class="tc">"Pochta yuborish uchun ham juda qulay ekan. Vodiyga berib yuborgan narsam 3 soatda yetib bordi."<div class="ta">● Dilshoda (Talaba)</div></div>
-    <div class="tc" style="border-left-color: var(--s);">"Registratsiya yo'qligi juda yoqdi. Shunchaki kirdim va kerakli yo'nalishni topdim. Ishlatish juda oson."<div class="ta">● Jamshid (Foydalanuvchi)</div></div>
-</div>
-
-<div class="cta"><div class="btn">GOOGLE PLAYDAN YUKLASH</div></div>
-
-<footer>
-    <div class="privacy">
-        <p style="font-weight: bold; margin-bottom: 10px; color: var(--accent);">&copy; 2024 ADIGO Team</p>
-        <div class="pl-text">
-            <h4 style="margin-bottom: 5px; color: #999;">Maxfiylik Siyosati</h4>
-            <p>ADIGO platformasi foydalanuvchilarning maxfiyligini qadrlaydi. Biz faqat xizmat ko'rsatish uchun zarur bo'lgan ma'lumotlarni (ism, telefon raqami, joylashuv) to'playmiz. Joylashuv ma'lumotlari haydovchi va yo'lovchilarni bir-biriga bog'lash uchun ishlatiladi va uchinchi shaxslarga sotilmaydi. Bog'lanish: support@adigo.uz</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // TUZOQ: Istalgan joyga bossa Play Marketga o'tadi
-    function go(e) {
-        // Maxfiylik siyosati matniga tegsa o'tmaydi (Meta Ads tekshiruvi uchun)
-        if (e && (e.target.classList.contains('pl-text') || e.target.closest('.pl-text'))) return;
-        
-        // Vibratsiya effekt
-        if (navigator.vibrate) navigator.vibrate(50);
-        
-        // Play Marketga yo'naltirish
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.adigo.taxi';
-    }
-
-    // Tab nomi animatsiyasi
-    let originalTitle = document.title;
-    window.onblur = () => { document.title = "🚕 Haydovchi topildi!"; };
-    window.onfocus = () => { document.title = originalTitle; };
-
-    // Jonli xabarlar (12 ta xabar)
-    const messages = [
-        "👤 Sardor: Andijonga taksi qidiryapti",
-        "🚕 Mahmud: Toshkentga reys qo'shdi",
-        "👤 Malika: Buxoroga taksi qidiryapti",
-        "📦 Dilshoda: Vodiyga pochta berdi",
-        "🚗 Rustam: 2 ta bo'sh joy qoldi",
-        "👤 Azamat: Farg'onaga taksi qidiryapti",
-        "👤 Bekzod: Samarqandga taksi qidiryapti",
-        "🚕 Jasur: Namanganga reys qo'shdi",
-        "👤 Umid: Qo'qonga taksi qidiryapti",
-        "✅ Yangi foydalanuvchi qo'shildi",
-        "👤 Laylo: Toshkentga taksi qidiryapti",
-        "🚗 Abror: 3 ta bo'sh joy e'lon qildi"
-    ];
-
-    setInterval(() => {
-        const container = document.getElementById('nc');
-        const div = document.createElement('div');
-        div.className = 'n';
-        div.innerHTML = messages[Math.floor(Math.random() * messages.length)];
-        container.appendChild(div);
-        setTimeout(() => div.remove(), 4000);
-    }, 7000);
-</script>
-
 </body>
 </html>
